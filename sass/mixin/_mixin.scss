@@ -1,0 +1,77 @@
+@mixin arrangeWidth($width, $paddingB) {
+  width: $width;
+  padding: 0 0 $paddingB 0;
+}
+
+@mixin rect($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin defaultRect($width: 250px, $height: 600px) {
+  width: $width;
+  height: $height;
+}
+
+@mixin arrange($left, $right, $width, $height) {
+  margin-left: $left;
+  margin-right: $right;
+  @include rect($width, $height);
+}
+
+@mixin inlineBlock() {
+  display: inline-block;
+  margin-left: -4px;
+  margin-bottom: -4px;
+}
+
+@mixin float() {
+  float: left;
+}
+
+@mixin coloredRect($className, $width, $height, $bcColor) {
+  #{$className} {
+    width: $width;
+    height: $height;
+    background-color: $bcColor;
+    @include float();
+  }
+}
+
+@mixin boxSizing($boxModel) {
+  -webkit-box-sizing: $boxModel;
+  -moz-box-sizing: $boxMode;
+  box-sizing: $boxModel;
+}
+
+@mixin paintBg($bgColor) {
+  background-color: $bgColor;
+}
+
+@mixin bodyFont($fontSize) {
+  h1 {
+    font-size: round($fontSize * 5);
+  }
+  h2 {
+    font-size: round($fontSize * 4);
+  }
+  h3 {
+    font-size: round($fontSize * 2.6);
+  }
+  h4 {
+    font-size: round($fontSize * 1.8);
+  }
+  h5 {
+    font-size: round($fontSize * 1.2);
+  }
+}
+
+@mixin bodyTheme($theme) {
+  @if $theme == blue {
+    background-color: blue;
+  } @else if $theme == black {
+    background-color: black;
+  } @else {
+    background-color: white;
+  }
+}

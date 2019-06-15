@@ -1,0 +1,395 @@
+@import "var";
+@import "mixin/mixin.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  margin: $space;
+  padding: $space;
+  @include bodyFont($smallFontSize);
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  h1 {
+    padding: $space 0;
+    font-size: $bigFontSize;
+    color: $bigFontColor;
+    font-family: $fontFamily;
+  }
+
+  span {
+    font-size: $smallFontSize;
+    color: $smallFontColor;
+    font-family: $fontFamily;
+  }
+
+  article {
+    font-family: $fontFamily;
+    padding: $space 0;
+  }
+}
+
+.dogs-intro {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: $dogsBg;
+  .dog {
+    background-color: $dogsBg;
+    color: $dogsFontColor;
+    @include arrangeWidth(50%, 15px);
+    font-family: $fontFamily;
+    h2 {
+      text-align: center;
+      padding: $space;
+    }
+    p {
+      padding: $space;
+    }
+  }
+}
+
+.dog-intro.sub {
+  .dog {
+    @include arrangeWidth(22%, 10px);
+  }
+}
+
+.boxes {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #213440;
+
+  .box4 {
+    @include arrange(75px, 0, 250px, 200px);
+    @include float();
+    background-color: #bf616a;
+  }
+
+  .box5 {
+    @include rect(250px, 300px);
+    @include float();
+    background-color: #d08770;
+  }
+
+  .box6 {
+    @include defaultRect(250px, 400px);
+    @include float();
+    background-color: #ebcb8b;
+  }
+
+  .box7 {
+    @include defaultRect();
+    @include float();
+    background-color: #a3be8c;
+  }
+
+  @include coloredRect(".box8", 250px, 700px, #b481ad);
+}
+
+.links ul {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px 0;
+  background-color: #434c5e;
+
+  a {
+    font: 20px Tahoma;
+    color: #ebcb8b;
+    transition: 0.5s;
+
+    &:hover {
+      color: #d08770;
+    }
+  }
+}
+
+.rects {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  background-color: #3b4252;
+
+  @include coloredRect(".rect1", 200px, 200px, #b48ead);
+  @include coloredRect(".rect2", 200px, 200px, #a3be8c);
+  @include coloredRect(".rect3", 200px, 200px, #ebcb8b);
+  @include coloredRect(".rect4", 200px, 200px, #d08770);
+  @include coloredRect(".rect5", 200px, 200px, #bf616a);
+  .rect1 {
+    margin-left: 200px;
+  }
+}
+
+.fontSize20 {
+  font-size: 20px;
+  font-family: Tahoma;
+  color: #81a1c1;
+}
+
+.btn {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 5px 10px;
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  z-index: 0;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform: translateX(-100%);
+    transition: 0.5s;
+  }
+
+  &:hover::after {
+    border: 2px solid #666;
+    transform: translateX(0);
+  }
+}
+
+.btns {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  background-color: #4c566a;
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-evenly;
+
+  a {
+    @extend .btn;
+    font-size: 30px;
+    font-family: Tahoma;
+  }
+
+  .btn1 {
+    border: 2px solid #8fbcbb;
+  }
+
+  .btn1::after {
+    @include paintBg(#8fbcbb);
+  }
+
+  .btn2 {
+    border: 2px solid #88c0d0;
+  }
+
+  .btn2::after {
+    @include paintBg(#88c0d0);
+  }
+
+  .btn3 {
+    border: 2px solid #81a1c1;
+  }
+
+  .btn3::after {
+    @include paintBg(#81a1c1);
+  }
+
+  .btn4 {
+    border: 2px solid #5e81ac;
+  }
+
+  .btn4::after {
+    @include paintBg(#5e81ac);
+  }
+}
+
+footer {
+  background-color: #2e3440;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+
+  span {
+    @extend .fontSize20;
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+
+.aaa {
+  width: 50% - 10;
+  height: 40px + 30;
+  font-size: (32px / 4);
+  line-height: 3px * 4;
+}
+
+.bbb {
+  width: floor(400px / 3);
+  height: ceil(500px / 3);
+  margin: round(700px / 3);
+  padding: round(800px / 3);
+}
+
+body {
+  @include bodyTheme($theme);
+}
+
+@for $i from 1 through 100 {
+  .box-#{$i} {
+    width: $i * 1px;
+  }
+}
+
+@for $i from 1 through 100 {
+  .mg-l-#{$i} {
+    margin-left: $i * 1px;
+  }
+}
+
+$value: a1 a2 a3 a4 box;
+
+@each $img in $value {
+  .#{$img}-images {
+    background-image: url("img/#{$img}.jpg");
+    width: 100%;
+    height: auto;
+    background-color: rgb(219, 219, 219);
+  }
+}
+
+@each $image in $value {
+  .#{$image}-image {
+    background-image: url("img/#{$image}.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@each $title, $fontSize in (h1: 48px, h2: 36px, h3: 24px) {
+  #{$title} {
+    font-size: $fontSize;
+  }
+}
+
+@each $title, $color in (red: #f00, green: #0f0, blue: #00f) {
+  .#{$title} {
+    color: $color;
+  }
+}
+
+$boxes: box1 300px #aaf, box2 250px #afa, box3 200px #faa;
+
+// @mixin boxes-modules($list) {
+//   @each $title, $width, $bgColor in $list {
+//     .#{$title} {
+//       width: $width;
+//       background-color: $bgColor;
+//     }
+//   }
+// }
+
+// @include boxes-modules($boxes);
+
+@mixin boxes-modules($list...) {
+  @each $title, $width, $bgColor in $list {
+    .#{$title} {
+      width: $width;
+      background-color: $bgColor;
+    }
+  }
+}
+
+@include boxes-modules(
+  box1 300px #aaf,
+  box2 250px #afa,
+  box3 200px #faa,
+  box4 150px #aaa
+);
+
+@mixin grid($div) {
+  @for $i from 1 through $div {
+    .col-md-#{$i} {
+      width: $i / $div * 100%;
+    }
+  }
+}
+
+@include grid(24);
+
+$mobile: 768px;
+$tablet: 767px;
+$desktop: 1024px;
+
+@mixin RWD($screenSize) {
+  @if $screenSize = $mobile {
+    @media screen and (max-width: $mobile) {
+      @content;
+    }
+  } @else if $screenSize = $tablet {
+    @media screen and (min-width: $tablet) {
+      @content;
+    }
+  } @else if $screenSize = $desktop {
+    @media screen and (min-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+@include RWD($mobile) {
+  body {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+
+  .box {
+    width: 100%;
+  }
+}
+
+@include RWD($tablet) {
+  body {
+    width: 80%;
+  }
+
+  .box {
+    width: 50%;
+  }
+}
+
+@include RWD($desktop) {
+  body {
+    max-width: 1200px;
+  }
+
+  .box {
+    width: 25%;
+  }
+}
