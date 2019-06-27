@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #c3fcf7;
+}
+
+section {
+  height: 100vh;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+}
+
+.box_01 {
+  background-color: #abc;
+}
+
+.box_02 {
+  background-color: #afa;
+}
+
+.box_03 {
+  background-color: #faa;
+}
+
+.same {
+  width: 400px;
+  height: 100px;
+}
+
+.same01 {
+  background-color: #f00;
+}
+
+.same02 {
+  background-color: #00f;
+}
+
+.third {
+  width: 500px;
+  height: 50px;
+}
+
+.third_01 {
+  background-color: #cc8;
+}
+
+.third_02 {
+  background-color: #8cc;
+}
+
+.third_03 {
+  background-color: #c8c;
+}
+
+.scene4.active {
+  background-color: #abc;
+}
+
+h1 {
+  color: #f00;
+}
+
+h1.active {
+  color: #333;
+}
+
+.section_08 {
+  background-color: rgb(182, 238, 255);
+}
+.scrollbox_01 {
+  background-color: rgb(255, 185, 185);
+}
+
+.scrollbox_02 {
+  background-color: rgb(255, 251, 191);
+}
+
+.scrollbox_03 {
+  background-color: rgb(218, 185, 255);
+}
